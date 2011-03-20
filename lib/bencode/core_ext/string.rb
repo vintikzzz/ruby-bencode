@@ -9,6 +9,6 @@ class String
   #   "".bencode      #=> "0:"
   #
   def bencode
-    "#{length}:#{self}"
+    "#{bytesize}:#{self.dup.force_encoding("ASCII-8BIT")}"
   end
 end

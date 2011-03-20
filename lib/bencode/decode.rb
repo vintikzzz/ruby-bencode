@@ -9,6 +9,7 @@ module BEncode
 
   # Bdecodes +str+
   def self.load(str)
+    str.force_encoding "ASCII-8BIT"
     scanner = StringScanner.new(str)
     obj = parse(scanner)
     raise BEncode::DecodeError unless scanner.eos?
